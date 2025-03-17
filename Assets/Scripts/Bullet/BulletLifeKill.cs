@@ -4,14 +4,16 @@ using UnityEngine;
 public class BulletLifeKill : MonoBehaviour
 {
 
+    public Transform orientation;
 
     float speed = 100.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        orientation = GameObject.FindGameObjectWithTag("Gun").transform;
         StartCoroutine(BKill());
-        transform.rotation = Camera.main.transform.rotation;
+        transform.rotation = orientation.rotation;
     }
 
     void FixedUpdate()

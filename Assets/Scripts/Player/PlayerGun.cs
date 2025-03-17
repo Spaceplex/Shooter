@@ -2,16 +2,23 @@ using UnityEngine;
 
 public class PlayerGun : MonoBehaviour
 {
+
+    public ThirdPersonCam camScript;
     
     public Transform gunBarrelTransform;
     [SerializeField] private LayerMask aimColliderLayerMask = new LayerMask();
     public GameObject bullet;
 
+    bool combat;
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)){
-            gunShoot();
+        combat = camScript.currentStyle == ThirdPersonCam.CameraStyle.Combat;
+        if (combat){
+            if (Input.GetMouseButtonDown(0))
+            {
+                gunShoot();
+            }
         }
     }
 

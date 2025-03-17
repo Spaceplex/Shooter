@@ -1051,6 +1051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e87f4a85cf4c614d949e0f69ae42884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camScript: {fileID: 330585549}
   gunBarrelTransform: {fileID: 1227551784}
   aimColliderLayerMask:
     serializedVersion: 2
@@ -1394,7 +1395,7 @@ GameObject:
   - component: {fileID: 1787007888}
   m_Layer: 0
   m_Name: Orientation
-  m_TagString: Untagged
+  m_TagString: logicOrientation
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1994,7 +1995,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1945634299}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.03016134, y: 0.133851, z: 0.0040757065, w: 0.990534}
+  m_LocalRotation: {x: -0.030158622, y: 0.13450968, z: 0.0040957625, w: 0.9904448}
   m_LocalPosition: {x: 0, y: 1.05, z: -4.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
