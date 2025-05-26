@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 3.6.5 commit date:2023-10-16, commit time:14:30, hash:cf1e1ed46b7e</authoring_tool>
+    </contributor>
+    <created>2024-05-02T13:16:15</created>
+    <modified>2024-05-02T13:16:15</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_effects>
+    <effect id="en_hnbk0-effect">
+      <profile_COMMON>
+        <newparam sid="en_hnbk0_PNG-surface">
+          <surface type="2D">
+            <init_from>en_hnbk0_PNG</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="en_hnbk0_PNG-sampler">
+          <sampler2D>
+            <source>en_hnbk0_PNG-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <texture texture="en_hnbk0_PNG-sampler" texcoord="Float2"/>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_images>
+    <image id="en_hnbk0_PNG" name="en_hnbk0_PNG">
+      <init_from>en_hnbk0.PNG</init_from>
+    </image>
+  </library_images>
+  <library_materials>
+    <material id="en_hnbk0-material" name="en_hnbk0">
+      <instance_effect url="#en_hnbk0-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="BKSHIELD1-mesh" name="BKSHIELD1">
+      <mesh>
+        <source id="BKSHIELD1-mesh-positions">
+          <float_array id="BKSHIELD1-mesh-positions-array" count="75">0.5639 5.8004 -3.3569 1.4765 6.3852 -1.8216 1.825 6.6075 0 1.4765 6.3852 1.8216 0.5639 5.8004 3.3569 0.5628 3.8148 -4.7339 2.5573 3.8148 -2.9257 3.1611 3.8148 0 2.5573 3.8148 2.9257 0.5628 3.8148 4.7339 0.5624 0 -5.4663 2.953 0 -3.3783 3.6501 0 0 2.953 0 3.3783 0.5624 0 5.4663 0.5628 -3.8148 -4.7339 2.5573 -3.8148 -2.9257 3.1611 -3.8148 0 2.5573 -3.8148 2.9257 0.5628 -3.8148 4.7339 0.5639 -5.8004 -3.3569 1.4765 -6.3852 -1.8216 1.825 -6.6075 0 1.4765 -6.3852 1.8216 0.5639 -5.8004 3.3569</float_array>
+          <technique_common>
+            <accessor source="#BKSHIELD1-mesh-positions-array" count="25" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="BKSHIELD1-mesh-normals">
+          <float_array id="BKSHIELD1-mesh-normals-array" count="75">0.8205313 -0.3197733 -0.4737865 0.8084641 -0.4611495 -0.365687 0.651229 -0.2914993 -0.7006633 0.7133677 -0.3990909 -0.5760495 0.8205313 -0.3197733 0.4737865 0.651229 -0.2914993 0.7006633 0.8084641 -0.4611495 0.365687 0.7133677 -0.3990909 0.5760495 0.8205313 0.3197733 -0.4737865 0.651229 0.2914993 -0.7006632 0.8084641 0.4611495 -0.365687 0.7133678 0.3990909 -0.5760494 0.8205313 0.3197733 0.4737865 0.8084641 0.4611495 0.365687 0.651229 0.2914993 0.7006632 0.7133677 0.399091 0.5760495 0.6578308 0 -0.7531659 0.8606092 0 -0.509266 0.6578308 0 0.7531659 0.8606092 0 0.509266 0.9586532 -0.2845769 0 0.9020764 -0.4315767 0 0.9586532 0.2845769 0 0.9020764 0.4315767 0 1 0 0</float_array>
+          <technique_common>
+            <accessor source="#BKSHIELD1-mesh-normals-array" count="25" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="BKSHIELD1-mesh-map-0">
+          <float_array id="BKSHIELD1-mesh-map-0-array" count="192">0.4886 0.2258999 0.4886 0.2997 0.4258 0.2258999 0.4258 0.2258999 0.4886 0.2997 0.4258 0.2997 0.6143 0.2258999 0.6772 0.2258999 0.6143 0.2997 0.6772 0.2258999 0.6772 0.2997 0.6143 0.2997 0.4886 0.07840001 0.4258 0.07840001 0.4886 0.004599988 0.4258 0.004599988 0.4886 0.004599988 0.4258 0.07840001 0.6143 0.07840001 0.6143 0.004599988 0.6772 0.07840001 0.6143 0.004599988 0.6772 0.004599988 0.6772 0.07840001 0.4258 0.1521999 0.4886 0.1521999 0.4258 0.2258999 0.4886 0.1521999 0.4886 0.2258999 0.4258 0.2258999 0.6772 0.1521999 0.6772 0.2258999 0.6143 0.1521999 0.6143 0.1521999 0.6772 0.2258999 0.6143 0.2258999 0.4258 0.1521999 0.4258 0.07840001 0.4886 0.1521999 0.4258 0.07840001 0.4886 0.07840001 0.4886 0.1521999 0.6772 0.1521999 0.6143 0.1521999 0.6772 0.07840001 0.6143 0.07840001 0.6772 0.07840001 0.6143 0.1521999 0.4886 0.2258999 0.5515 0.2258999 0.4886 0.2997 0.5515 0.2258999 0.5515 0.2997 0.4886 0.2997 0.4886 0.07840001 0.4886 0.004599988 0.5515 0.07840001 0.4886 0.004599988 0.5515 0.004599988 0.5515 0.07840001 0.6143 0.07840001 0.5515 0.07840001 0.6143 0.004599988 0.5515 0.004599988 0.6143 0.004599988 0.5515 0.07840001 0.6143 0.2258999 0.6143 0.2997 0.5515 0.2258999 0.5515 0.2258999 0.6143 0.2997 0.5515 0.2997 0.5515 0.1521999 0.4886 0.1521999 0.5515 0.07840001 0.4886 0.07840001 0.5515 0.07840001 0.4886 0.1521999 0.5515 0.1521999 0.5515 0.07840001 0.6143 0.1521999 0.5515 0.07840001 0.6143 0.07840001 0.6143 0.1521999 0.5515 0.1521999 0.5515 0.2258999 0.4886 0.1521999 0.4886 0.1521999 0.5515 0.2258999 0.4886 0.2258999 0.5515 0.1521999 0.6143 0.1521999 0.5515 0.2258999 0.6143 0.1521999 0.6143 0.2258999 0.5515 0.2258999</float_array>
+          <technique_common>
+            <accessor source="#BKSHIELD1-mesh-map-0-array" count="96" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="BKSHIELD1-mesh-colors-Col" name="Col">
+          <float_array id="BKSHIELD1-mesh-colors-Col-array" count="384">1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4 1 1 1 0.4</float_array>
+          <technique_common>
+            <accessor source="#BKSHIELD1-mesh-colors-Col-array" count="96" stride="4">
+              <param name="R" type="float"/>
+              <param name="G" type="float"/>
+              <param name="B" type="float"/>
+              <param name="A" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="BKSHIELD1-mesh-vertices">
+          <input semantic="POSITION" source="#BKSHIELD1-mesh-positions"/>
+        </vertices>
+        <triangles material="en_hnbk0-material" count="32">
+          <input semantic="VERTEX" source="#BKSHIELD1-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#BKSHIELD1-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#BKSHIELD1-mesh-map-0" offset="2" set="0"/>
+          <input semantic="COLOR" source="#BKSHIELD1-mesh-colors-Col" offset="3" set="0"/>
+          <p>16 0 0 0 21 1 1 1 15 2 2 2 15 2 3 3 21 1 4 4 20 3 5 5 18 4 6 6 19 5 7 7 23 6 8 8 19 5 9 9 24 7 10 10 23 6 11 11 6 8 12 12 5 9 13 13 1 10 14 14 0 11 15 15 1 10 16 16 5 9 17 17 8 12 18 18 3 13 19 19 9 14 20 20 3 13 21 21 4 15 22 22 9 14 23 23 10 16 24 24 11 17 25 25 15 2 26 26 11 17 27 27 16 0 28 28 15 2 29 29 14 18 30 30 19 5 31 31 13 19 32 32 13 19 33 33 19 5 34 34 18 4 35 35 10 16 36 36 5 9 37 37 11 17 38 38 5 9 39 39 6 8 40 40 11 17 41 41 14 18 42 42 13 19 43 43 9 14 44 44 8 12 45 45 9 14 46 46 13 19 47 47 16 0 48 48 17 20 49 49 21 1 50 50 17 20 51 51 22 21 52 52 21 1 53 53 6 8 54 54 1 10 55 55 7 22 56 56 1 10 57 57 2 23 58 58 7 22 59 59 8 12 60 60 7 22 61 61 3 13 62 62 2 23 63 63 3 13 64 64 7 22 65 65 18 4 66 66 23 6 67 67 17 20 68 68 17 20 69 69 23 6 70 70 22 21 71 71 12 24 72 72 11 17 73 73 7 22 74 74 6 8 75 75 7 22 76 76 11 17 77 77 12 24 78 78 7 22 79 79 13 19 80 80 7 22 81 81 8 12 82 82 13 19 83 83 12 24 84 84 17 20 85 85 11 17 86 86 11 17 87 87 17 20 88 88 16 0 89 89 12 24 90 90 13 19 91 91 17 20 92 92 13 19 93 93 18 4 94 94 17 20 95 95</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="BKSHIELD1" name="BKSHIELD1" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <instance_geometry url="#BKSHIELD1-mesh" name="BKSHIELD1">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="en_hnbk0-material" target="#en_hnbk0-material">
+                <bind_vertex_input semantic="Float2" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

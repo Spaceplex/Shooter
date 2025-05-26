@@ -6,7 +6,7 @@ public class BulletLifeKill : MonoBehaviour
 
     private Rigidbody bulletRB;
 
-    private float speed = 100.0f;
+    private const float speed = 100.0f;
     public Vector3 forceEnd;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -14,17 +14,21 @@ public class BulletLifeKill : MonoBehaviour
     {
         bulletRB = GetComponent<Rigidbody>();
         bulletRB.linearVelocity = transform.forward * speed;
-        StartCoroutine(BKill());
+        Destroy(this.gameObject, 5f);
     }
 
     void FixedUpdate()
     {
-        /*transform.Translate(transform.forward * speed * Time.deltaTime);*/
         bulletRB.AddForce(forceEnd, ForceMode.Force);
     }
 
-    IEnumerator BKill(){
-        yield return new WaitForSeconds(0.5f);
+    void OnTriggerEnter(Collider other)
+    {
+      if (other.gameObject.GetComponent<EnemyController>() != null){
+        EnemyController e = other.GetComponent<EnemyController>();
+        TagSystem.TagEnemy(e);
         Destroy(this.gameObject);
+      }
     }
+
 }

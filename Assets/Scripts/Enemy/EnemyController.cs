@@ -5,23 +5,38 @@ public class EnemyController : MonoBehaviour
 {
 
     public Image healthBar;
-    private float health = 20.0f;  
+    [SerializeField]
+    private float health = 20.0f;
+    public GameObject parent;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    public int tags = 0;
 
     // Update is called once per frame
     void Update()
     {
-        
+      if (health <= 0.0f){
+        Destroy(parent);
+      }
+      healthBar.fillAmount = health/20.0f;
     }
 
     public void TakeDamage()
     {
       health--;
-      healthBar.fillAmount = health/20.0f;
     }
+
+    /*void OnTriggerEnter(Collider other)*/
+    /*{*/
+    /*  if (other.CompareTag("Bullet")){*/
+    /*    TakeDamage();*/
+    /*  }*/
+    /*  Destroy(other.gameObject);*/
+    /*}*/
+
+    public void IncrementTag(){
+      if (tags < 3)
+        tags++;
+    }
+    public void ResetTag(){tags = 0;}
 }
