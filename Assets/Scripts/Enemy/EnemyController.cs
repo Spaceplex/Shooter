@@ -16,6 +16,9 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
       if (health <= 0.0f){
+        if (tags != 0){
+          TagSystem.ReAdjustTags(this);
+        }
         Destroy(parent);
       }
       healthBar.fillAmount = health/20.0f;

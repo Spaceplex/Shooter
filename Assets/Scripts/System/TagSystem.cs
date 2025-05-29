@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -49,5 +50,9 @@ public class TagSystem : MonoBehaviour
         }
         enemy.IncrementTag();
       }
+    }
+
+    public static void ReAdjustTags(EnemyController e){
+      taggedObjects = new Queue<EnemyController>(taggedObjects.Where(x => x != e));
     }
 }
