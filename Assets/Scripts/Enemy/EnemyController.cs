@@ -7,6 +7,8 @@ public class EnemyController : MonoBehaviour
     public Image healthBar;
     [SerializeField]
     private float health = 20.0f;
+    [SerializeField]
+    private float maxHealth = 100.0f;
     public GameObject parent;
 
     [SerializeField]
@@ -17,16 +19,21 @@ public class EnemyController : MonoBehaviour
     {
       if (health <= 0.0f){
         if (tags != 0){
-          TagSystem.ReAdjustTags(this);
+          TagSystem.RemoveEnemy(this);
         }
         Destroy(parent);
       }
-      healthBar.fillAmount = health/20.0f;
+      healthBar.fillAmount = health/maxHealth;
     }
 
     public void TakeDamage()
     {
       health--;
+    }
+
+    public void TakeDamage(int d)
+    {
+      health -= d;
     }
 
     /*void OnTriggerEnter(Collider other)*/

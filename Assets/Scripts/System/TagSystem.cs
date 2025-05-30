@@ -10,14 +10,13 @@ public class TagSystem : MonoBehaviour
     public Text queueText;
     private string output = "";
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void FixedUpdate()
+    {
+      DebugStuff();
+    }
+
+    void DebugStuff()
     {
       output = "";
       if(taggedObjects.Count == 0)
@@ -28,31 +27,55 @@ public class TagSystem : MonoBehaviour
         }
       }
       queueText.text = output;
-
     }
 
     public static void TagEnemy(EnemyController enemy){
       enemy.TakeDamage();
-      if (enemy.tags != 0){
-        enemy.IncrementTag();
-      } else {
-        if (taggedObjects.Count < 3){
-          taggedObjects.Enqueue(enemy);
-        }
-        if (taggedObjects.Count > 3){
-          Debug.LogError("3 enemy tags should not be exceeded");
-        }
+  
+      // Situations:
+      // 1: The queue doesn't have the enemy and adds it
 
-        if (taggedObjects.Count == 3){
+      if (!taggedObjects.Contains(enemy)){
+
+        if(taggedObjects.Count == 3){
           taggedObjects.Peek().ResetTag();
           taggedObjects.Dequeue();
-          taggedObjects.Enqueue(enemy);
         }
-        enemy.IncrementTag();
+
+        taggedObjects.Enqueue(enemy);
+      } else 
+
+      // 2: The queue has the enemy and reprioritizes it
+      {
+        ReAdjustTags(enemy);
       }
+
+      enemy.IncrementTag();
+
+      /*if (enemy.tags != 0){*/
+      /*  enemy.IncrementTag();*/
+      /*} else {*/
+      /*  if (taggedObjects.Count < 3){*/
+      /*    taggedObjects.Enqueue(enemy);*/
+      /*  }*/
+      /*  if (taggedObjects.Count > 3){*/
+      /*    Debug.LogError("3 enemy tags should not be exceeded");*/
+      /*  }*/
+      /**/
+      /*  if (taggedObjects.Count == 3){*/
+      /*    taggedObjects.Peek().ResetTag();*/
+      /*    taggedObjects.Dequeue();*/
+      /*    taggedObjects.Enqueue(enemy);*/
+      /*  }*/
+      /*  enemy.IncrementTag();*/
+      /*}*/
     }
 
     public static void ReAdjustTags(EnemyController e){
+      taggedObjects = new Queue<EnemyController>(taggedObjects.Where(x => x != e));
+      taggedObjects.Enqueue(e);
+    }
+    public static void RemoveEnemy(EnemyController e){
       taggedObjects = new Queue<EnemyController>(taggedObjects.Where(x => x != e));
     }
 }
