@@ -36,17 +36,7 @@ public class EnemyController : MonoBehaviour
       health -= d;
     }
 
-    /*void OnTriggerEnter(Collider other)*/
-    /*{*/
-    /*  if (other.CompareTag("Bullet")){*/
-    /*    TakeDamage();*/
-    /*  }*/
-    /*  Destroy(other.gameObject);*/
-    /*}*/
+    public void IncrementTag(){ if (tags < 3) tags++;}
 
-    public void IncrementTag(){
-      if (tags < 3)
-        tags++;
-    }
     public void ResetTag(){tags = 0;}
 }

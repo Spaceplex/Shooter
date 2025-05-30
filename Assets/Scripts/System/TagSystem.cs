@@ -23,7 +23,23 @@ public class TagSystem : MonoBehaviour
         output = "None";
       else {
         foreach(EnemyController e in taggedObjects){
+          output += "<color=";
+          switch(e.tags){
+            case 1:
+              output += "cyan";
+              break;
+            case 2:
+              output += "orange";
+              break;
+            case 3:
+              output += "magenta";
+              break;
+            default:
+              break;
+          }
+          output += ">";
           output += e.parent.name + " ";
+          output += "</color>";
         }
       }
       queueText.text = output;
