@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class EnemyAI : MonoBehaviour
@@ -10,9 +11,11 @@ public class EnemyAI : MonoBehaviour
   };
   enemyState state;
   Transform playerTransform;
+  public Text stateText;
 
   // states
   private bool active = true;
+  private bool aiming = false;
 
   void Start()
   {
@@ -22,20 +25,26 @@ public class EnemyAI : MonoBehaviour
 
   void FixedUpdate()
   {
-    if (state == enemyState.AIMING) TakeAim();
-    else if (state == enemyState.SHOOTING) FireGun();
+    if (active){
+      if (state == enemyState.AIMING) TakeAim();
+      else if (state == enemyState.SHOOTING) FireGun();
+    }
   }
 
   void TakeAim()
   {
-    transform.LookAt(playerTransform);
-    if (active) StartCoroutine("sw");
+    aiming = true;
+    //Debug.Log("Taking aim");
+    stateText.text  = "State: Taking Aim";
+    if(aiming) transform.LookAt(playerTransform);
+    StartCoroutine("sw");
   }
 
   void FireGun()
   {
-    Debug.Log("Pretend firing");
-    if (active) StartCoroutine("sw");
+    //Debug.Log("Pretend firing");
+    stateText.text  = "State: Firing";
+    StartCoroutine("sw");
   }
 
   IEnumerator sw()
@@ -43,6 +52,7 @@ public class EnemyAI : MonoBehaviour
     active = false;
     yield return new WaitForSeconds(3f);
     active = true;
-    state++;
+    if (state == enemyState.AIMING) state = enemyState.SHOOTING;
+    else if (state == enemyState.SHOOTING) state = enemyState.AIMING;
   }
 }
