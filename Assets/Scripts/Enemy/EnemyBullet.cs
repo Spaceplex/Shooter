@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class BulletLifeKill : MonoBehaviour
+public class EnemyBullet : MonoBehaviour
 {
-
     private Rigidbody bulletRB;
 
     private const float speed = 100.0f;
@@ -23,11 +22,10 @@ public class BulletLifeKill : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-      if (other.gameObject.GetComponent<EnemyController>() != null){
-        EnemyController e = other.GetComponent<EnemyController>();
-        TagSystem.TagEnemy(e);
-        Destroy(this.gameObject);
-      }
+      // if (other.gameObject.GetComponent<EnemyController>() != null){
+      //   EnemyController e = other.GetComponent<EnemyController>();
+      //   TagSystem.TagEnemy(e);
+      //   Destroy(this.gameObject);
+      // }
     }
-
 }

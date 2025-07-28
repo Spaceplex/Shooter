@@ -15,6 +15,12 @@ public class EnemyAI : MonoBehaviour
   // states
     private bool active = true;
     private bool aiming = false;
+    private bool gunReady = false;
+
+
+    // Gun transform
+    public Transform gunTransform;
+    public GameObject enemyBulletPrefab;
 
   void Start()
   {
@@ -32,6 +38,7 @@ public class EnemyAI : MonoBehaviour
   void TakeAim()
   {
     aiming = true;
+    gunReady = true;
     //Debug.Log("Taking aim");
     stateText.text  = "State: Taking Aim";
     transform.LookAt(playerTransform);
@@ -41,6 +48,16 @@ public class EnemyAI : MonoBehaviour
   {
     //Debug.Log("Pretend firing");
     stateText.text  = "State: Firing";
+
+    if (gunReady){
+
+      GameObject enemyBullet = Instantiate(
+          enemyBulletPrefab,
+          gunTransform.position,
+          transform.rotation
+          ); 
+      gunReady = false;
+    }
   }
 
   IEnumerator sw()
