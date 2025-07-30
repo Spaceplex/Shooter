@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     Vector3 moveDirection;
     public float moveSpeed = 10.0f;
     public float groundDrag;
+    public float maxSpeed = 17.0f;
 
     public Transform orientation;
 
@@ -26,11 +27,22 @@ public class PlayerController : MonoBehaviour
     [Header("Combat")]
     [SerializeField] bool inCombat = false;
 
+    public MovementState movementState;
+    public enum MovementState {
+      walking,
+      dashing,
+      running,
+      aiming,
+      air, // Currently unused
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+
+        movementState = MovementState.walking;
     }
 
     // Update is called once per frame
@@ -58,6 +70,7 @@ public class PlayerController : MonoBehaviour
         PlayerMove();
     }
 
+    // Receiving input every frame
     private void MyInput(){
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
@@ -71,11 +84,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Basic Rigidbody movement
     private void PlayerMove(){
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+
+        // we are moving in the other script
+        if (movementState == MovementState.dashing){
+          return;
+        }
         rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
     }
 
+    // Makes the player face the direction of the camera
     private void AlignPlayer(){
         Vector3 worldAimTarget = mouseWorldPosition;
         worldAimTarget.y = transform.position.y;
