@@ -16,10 +16,10 @@ public class ShockSystem : MonoBehaviour
 
     void FixedUpdate()
     {
-      if (Input.GetKeyDown(KeyCode.E))
+      if (Input.GetKey(KeyCode.E))
       {
         foreach(EnemyController e in TagSystem.taggedObjects){
-          e.TakeDamage(10 * e.tags);
+          e.TakeDamage(0.5f * e.tags);
         }
       }
     }

@@ -9,12 +9,13 @@ public class ThirdPersonCam : MonoBehaviour
     public Transform orientation;
     public Transform player;
     public Transform playerObj;
-    public Rigidbody rb;
+    public PlayerCC pcc;
 
     public Text debugText;
 
     public float rotationSpeed;
 
+    [Header("Aim mode")]
     public Transform combatLookAt;
 
     public CameraStyle currentStyle = CameraStyle.Free;

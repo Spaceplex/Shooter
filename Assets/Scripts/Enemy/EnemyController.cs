@@ -31,7 +31,7 @@ public class EnemyController : MonoBehaviour
       health--;
     }
 
-    public void TakeDamage(int d)
+    public void TakeDamage(float d)
     {
       health -= d;
     }

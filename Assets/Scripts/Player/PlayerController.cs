@@ -46,7 +46,6 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    [System.Obsolete]
     void Update()
     {
         // ground check
